@@ -16,6 +16,9 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     libfontconfig1 \
     libfreetype6 \
+    libpng-dev \
+    libharfbuzz0b \
+    libicu-dev \
     libjpeg62-turbo \
     libpng16-16 \
     libglu1-mesa \
