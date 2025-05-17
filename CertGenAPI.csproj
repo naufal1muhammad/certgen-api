@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="MailKit" Version="4.12.0" />
     <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1000" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.119.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="29.2.4" />
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="29.2.4" />
