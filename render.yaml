@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: certgen-api
+    runtime: dotnet
+    repo: https://github.com/your-username/your-repo
+    buildCommand: dotnet build
+    startCommand: dotnet run --urls=http://0.0.0.0:5000
+    env: 
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production

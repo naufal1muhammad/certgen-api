@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "A+DSdKBM8nGZOl9O3HTJJ2jdc+30BBPUuGfvotZlfno=",
+  "Source": "CertGenAPI",
+  "BasePath": "_content/CertGenAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

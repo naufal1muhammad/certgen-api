@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "CertGenAPI.Controllers.CertificateController",
+    "Method": "GenerateCertificate",
+    "RelativePath": "api/Certificate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "CertGenAPI.Models.CertificateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CertGenAPI.Controllers.CertificateController",
+    "Method": "GetAllSubmissions",
+    "RelativePath": "api/Certificate/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CertGenAPI.Controllers.CertificateController",
+    "Method": "CheckICNumber",
+    "RelativePath": "api/Certificate/check-ic",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "icNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
