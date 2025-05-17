@@ -67,3 +67,5 @@ C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\runtimes\win
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\CertGenAPI.sourcelink.json
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\Templates\committee_template.docx
+C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\Templates\participant_template.docx
