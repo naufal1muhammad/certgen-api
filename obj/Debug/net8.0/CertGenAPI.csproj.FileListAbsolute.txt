@@ -7,7 +7,6 @@ C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\CertGenAPI.r
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\CertGenAPI.dll
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\CertGenAPI.pdb
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\DinkToPdf.dll
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\MailKit.dll
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\MimeKit.dll
@@ -66,4 +65,5 @@ C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\runtimes\osx
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\runtimes\win-arm64\native\libSkiaSharp.dll
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\runtimes\win-x64\native\libSkiaSharp.dll
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll
-C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\bin\Debug\net8.0\submissions.json
+C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\CertGenAPI.sourcelink.json
+C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

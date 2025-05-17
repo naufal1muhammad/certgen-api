@@ -1,20 +1,14 @@
 using CertGenAPI.Services;
-using DinkToPdf;
-using DinkToPdf.Contracts;
-
-var context = new CustomAssemblyLoadContext();
-context.LoadUnmanagedLibrary(Path.Combine(Directory.GetCurrentDirectory(), "libwkhtmltox", "libwkhtmltox.dll"));
 
 var builder = WebApplication.CreateBuilder(args);
 
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBPh8sVXJ9S0d+X1JPd11dXmJWd1p/THNYflR1fV9DaUwxOX1dQl9mSXtScEVgWnlbeXZWQWdXU00=;Mgo+DSMBMAY9C3t2XFhhQlJHfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hTH5Wd0NjWnxYdX1XQGhVWkZ/");
 
 // Add services to the container.
-builder.Services.AddSingleton<IConverter>(new SynchronizedConverter(new PdfTools()));
+
 builder.Services.AddScoped<CertificateService>();
 builder.Services.AddScoped<EmailService>();
 builder.Services.AddSingleton<FileStorageService>();
-builder.Services.AddSingleton<PdfTools>();
 
 builder.Services.AddCors(options =>
 {
