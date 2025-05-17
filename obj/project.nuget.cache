@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P6+zdcF1tg0=",
+  "dgSpecHash": "7GaO4IPPJ3s=",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\CertGenAPI\\CertGenAPI\\CertGenAPI.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,7 @@
     "C:\\Users\\Lenovo\\.nuget\\packages\\mimekit\\4.12.0\\mimekit.4.12.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\skiasharp\\3.116.1\\skiasharp.3.116.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\skiasharp.harfbuzz\\3.116.1\\skiasharp.harfbuzz.3.116.1.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\skiasharp.nativeassets.linux\\3.119.0\\skiasharp.nativeassets.linux.3.119.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\skiasharp.nativeassets.linux\\3.116.1\\skiasharp.nativeassets.linux.3.116.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\skiasharp.nativeassets.macos\\3.116.1\\skiasharp.nativeassets.macos.3.116.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\skiasharp.nativeassets.win32\\3.116.1\\skiasharp.nativeassets.win32.3.116.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",

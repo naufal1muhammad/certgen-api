@@ -10,6 +10,8 @@
         "dependencies": {
           "MailKit": "4.12.0",
           "Microsoft.Office.Interop.Word": "15.0.4797.1003",
+          "SkiaSharp": "3.116.1",
+          "SkiaSharp.NativeAssets.Linux": "3.116.1",
           "Swashbuckle.AspNetCore": "6.6.2",
           "Syncfusion.DocIO.Net.Core": "29.2.4",
           "Syncfusion.DocIORenderer.Net.Core": "29.2.4",
@@ -140,6 +142,50 @@
           "lib/net8.0/SkiaSharp.HarfBuzz.dll": {
             "assemblyVersion": "3.116.0.0",
             "fileVersion": "3.116.1.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux/3.116.1": {
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSkiaSharp.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm/native/libSkiaSharp.so.116.0.0": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libSkiaSharp.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libSkiaSharp.so.116.0.0": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libSkiaSharp.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libSkiaSharp.so.116.0.0": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libSkiaSharp.so.116.0.0": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -494,6 +540,13 @@
       "sha512": "sha512-ibDG1+quN86vBd9ztjDAC9wnvS1nRZ6ydTUOSod4NsRHWdLLGzWYn1IOF4Cg9iJh5cQHdpzhUZBQE0JMKznrow==",
       "path": "skiasharp.harfbuzz/3.116.1",
       "hashPath": "skiasharp.harfbuzz.3.116.1.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Linux/3.116.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-f4OSsrMwe+Ei9KpNc3EMUiMcZkQSYepHCaDuvMyLBaHVQd+9Ywq/rlbmapqztsU6k2iPEVLD8ZuBJm9RDJsAow==",
+      "path": "skiasharp.nativeassets.linux/3.116.1",
+      "hashPath": "skiasharp.nativeassets.linux.3.116.1.nupkg.sha512"
     },
     "SkiaSharp.NativeAssets.macOS/3.116.1": {
       "type": "package",

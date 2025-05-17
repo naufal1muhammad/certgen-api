@@ -16,11 +16,16 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     libfontconfig1 \
     libfreetype6 \
-    libpng16-16 \
     libjpeg62-turbo \
+    libpng16-16 \
     libglu1-mesa \
-    libgif7 \
+    wget \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://github.com/mono/SkiaSharp/releases/download/v2.88.3/libSkiaSharp.so-x64.zip \
+    && unzip libSkiaSharp.so-x64.zip -d /usr/lib \
+    && rm libSkiaSharp.so-x64.zip
 
 COPY --from=build /app/out ./
 
