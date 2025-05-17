@@ -12,6 +12,16 @@ RUN dotnet publish -c Release -o out
 # Stage 2: Run the app using a lighter runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    libfontconfig1 \
+    libfreetype6 \
+    libpng16-16 \
+    libjpeg62-turbo \
+    libglu1-mesa \
+    libgif7 \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY --from=build /app/out ./
 
 # Set the port and expose it
