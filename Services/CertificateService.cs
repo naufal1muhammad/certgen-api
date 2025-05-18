@@ -10,7 +10,7 @@ namespace CertGenAPI.Services
     public class CertificateService
     {
         private readonly string _templateFolder = Path.Combine(Directory.GetCurrentDirectory(), "Templates");
-        private readonly string _outputFolder = Path.Combine(Directory.GetCurrentDirectory(), "Certificates");
+        private readonly string _outputFolder = "/data/Certificates";
 
         public CertificateService()
         {

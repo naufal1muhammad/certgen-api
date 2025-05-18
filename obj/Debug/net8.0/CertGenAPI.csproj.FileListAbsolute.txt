@@ -76,3 +76,4 @@ C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\refint\CertG
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\CertGenAPI.pdb
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\CertGenAPI.genruntimeconfig.cache
 C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\ref\CertGenAPI.dll
+C:\Users\Lenovo\source\repos\CertGenAPI\CertGenAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

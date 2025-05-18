@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CertGenAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58af46f9103f6075df3c51883e0d0b5b2747c8e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7944b0a1a0b322c6da2ef3b89278595d2b372f89")]
 [assembly: System.Reflection.AssemblyProductAttribute("CertGenAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CertGenAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
