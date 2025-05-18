@@ -18,7 +18,7 @@ namespace CertGenAPI.Services
                 Directory.CreateDirectory(_outputFolder);
         }
 
-        public string GenerateCertificate(string name, string role)
+        public string GenerateCertificate(string name, string role, string icNumber)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace CertGenAPI.Services
 
                 // Generate output path
                 string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-                string outputPath = Path.Combine(_outputFolder, $"{name}_{role}_{timestamp}.pdf");
+                string outputPath = Path.Combine(_outputFolder, $"{name}_{icNumber}.pdf");
 
                 // Save PDF
                 using FileStream outputStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write);

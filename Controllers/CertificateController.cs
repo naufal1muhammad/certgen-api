@@ -34,7 +34,7 @@ namespace CertGenAPI.Controllers
                 string templateType = request.Role.Equals("Committee", StringComparison.OrdinalIgnoreCase) ? "A" : "B";
 
                 // Generate certificate with appropriate type
-                var pdfPath = _certService.GenerateCertificate(request.Name, request.Role);
+                var pdfPath = _certService.GenerateCertificate(request.Name, request.Role, request.ICNumber);
 
                 // Save submission to JSON
                 await _fileStorageService.SaveSubmissionAsync(request);
@@ -131,6 +131,39 @@ namespace CertGenAPI.Controllers
             await System.IO.File.WriteAllTextAsync(filePath, updatedJson);
 
             return Ok($"Deleted {removedCount} submission(s) with IC Number: {icNumber}");
+        }
+
+        [HttpDelete("delete-certificate")]
+        public IActionResult DeleteCertificate([FromQuery] string icNumber, [FromQuery] string token)
+        {
+            if (token != "adminsecret123") return Unauthorized("Access denied.");
+
+            if (string.IsNullOrEmpty(icNumber))
+            {
+                return BadRequest("Please provide a valid IC Number.");
+            }
+
+            var certificatesDir = Path.Combine("/data", "Certificates");
+
+            if (!Directory.Exists(certificatesDir))
+            {
+                return NotFound("Certificates folder not found.");
+            }
+
+            // Look for matching files (assuming they contain IC Number in the filename)
+            var matchingFiles = Directory.GetFiles(certificatesDir, $"*{icNumber}*.pdf");
+
+            if (matchingFiles.Length == 0)
+            {
+                return NotFound($"No certificate found for IC Number: {icNumber}");
+            }
+
+            foreach (var file in matchingFiles)
+            {
+                System.IO.File.Delete(file);
+            }
+
+            return Ok($"Deleted {matchingFiles.Length} certificate(s) for IC Number: {icNumber}");
         }
     }
 }
