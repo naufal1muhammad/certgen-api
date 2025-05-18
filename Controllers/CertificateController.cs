@@ -91,5 +91,46 @@ namespace CertGenAPI.Controllers
             bool exists = submissions.Any(s => s.ICNumber?.Trim() == icNumber.Trim());
             return Ok(exists);
         }
+
+        [HttpDelete("delete-submission")]
+        public async Task<IActionResult> DeleteSubmission([FromQuery] string icNumber, [FromQuery] string token)
+        {
+            if (token != "adminsecret123") return Unauthorized("Access denied.");
+
+            if (string.IsNullOrEmpty(icNumber))
+            {
+                return BadRequest("Please provide a valid IC Number.");
+            }
+
+            var filePath = Path.Combine("/data", "submissions.json");
+
+            if (!System.IO.File.Exists(filePath))
+            {
+                return NotFound("submissions.json not found.");
+            }
+
+            // Read existing data
+            var json = await System.IO.File.ReadAllTextAsync(filePath);
+            var submissions = JsonSerializer.Deserialize<List<CertificateRequest>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            if (submissions == null || submissions.Count == 0)
+            {
+                return NotFound("No submissions found.");
+            }
+
+            // Try to remove the matching submission
+            var removedCount = submissions.RemoveAll(s => s.ICNumber == icNumber);
+
+            if (removedCount == 0)
+            {
+                return NotFound($"No submission found with IC Number: {icNumber}");
+            }
+
+            // Save updated list
+            var updatedJson = JsonSerializer.Serialize(submissions, new JsonSerializerOptions { WriteIndented = true });
+            await System.IO.File.WriteAllTextAsync(filePath, updatedJson);
+
+            return Ok($"Deleted {removedCount} submission(s) with IC Number: {icNumber}");
+        }
     }
 }
