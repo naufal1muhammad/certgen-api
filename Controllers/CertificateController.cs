@@ -104,7 +104,7 @@ namespace CertGenAPI.Controllers
                 return BadRequest("Please provide a valid IC Number.");
             }
 
-            var filePath = "/data/submissions.json";
+            var filePath = Path.Combine(_env.ContentRootPath, "data", "submissions.json");
 
             if (!System.IO.File.Exists(filePath))
             {

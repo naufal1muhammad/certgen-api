@@ -5,8 +5,20 @@ namespace CertGenAPI.Services
 {
     public class FileStorageService
     {
-        private readonly string _submissionFile = "/data/submissions.json";
+        private readonly string _submissionFile;
+        private readonly IWebHostEnvironment _env;
         private static readonly object _fileLock = new();
+
+        public FileStorageService(IWebHostEnvironment env)
+        {
+            _env = env;
+            var dataDirectory = Path.Combine(_env.ContentRootPath, "data");
+
+            // Ensure the data folder exists
+            Directory.CreateDirectory(dataDirectory);
+
+            _submissionFile = Path.Combine(dataDirectory, "submissions.json");
+        }
 
         public async Task SaveSubmissionAsync(CertificateRequest request)
         {
