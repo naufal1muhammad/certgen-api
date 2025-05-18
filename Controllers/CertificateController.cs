@@ -13,12 +13,14 @@ namespace CertGenAPI.Controllers
         private readonly CertificateService _certService;
         private readonly EmailService _emailService;
         private readonly FileStorageService _fileStorageService;
+        private readonly IWebHostEnvironment _env;
 
-        public CertificateController(CertificateService certService, EmailService emailService, FileStorageService fileStorageService)
+        public CertificateController(CertificateService certService, EmailService emailService, FileStorageService fileStorageService, IWebHostEnvironment env)
         {
             _certService = certService;
             _emailService = emailService;
             _fileStorageService = fileStorageService;
+            _env = env;
         }
 
         [HttpPost]
@@ -102,7 +104,7 @@ namespace CertGenAPI.Controllers
                 return BadRequest("Please provide a valid IC Number.");
             }
 
-            var filePath = Path.Combine("/data", "submissions.json");
+            var filePath = Path.Combine(_env.ContentRootPath, "data", "submissions.json");
 
             if (!System.IO.File.Exists(filePath))
             {
@@ -143,7 +145,7 @@ namespace CertGenAPI.Controllers
                 return BadRequest("Please provide a valid IC Number.");
             }
 
-            var certificatesDir = Path.Combine("/data", "Certificates");
+            var certificatesDir = Path.Combine(_env.ContentRootPath, "data", "Certificates");
 
             if (!Directory.Exists(certificatesDir))
             {
