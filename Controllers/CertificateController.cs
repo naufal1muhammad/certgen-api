@@ -73,7 +73,7 @@ namespace CertGenAPI.Controllers
         [HttpGet("check-ic")]
         public IActionResult CheckICNumber([FromQuery] string icNumber)
         {
-            var submissionsPath = "/data/submissions.json";
+            var submissionsPath = Path.Combine(_env.ContentRootPath, "data", "submissions.json");
 
             if (!System.IO.File.Exists(submissionsPath))
             {
