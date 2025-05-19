@@ -10,7 +10,7 @@ namespace CertGenAPI.Services
     public class CertificateService
     {
         private readonly string _templateFolder = Path.Combine(Directory.GetCurrentDirectory(), "Templates");
-        private readonly string _outputFolder = "/data/Certificates";
+        private readonly string _outputFolder = Path.Combine("/data", "Certificates");
 
         public string GenerateCertificate(string name, string role, string icNumber)
         {

@@ -73,7 +73,7 @@ namespace CertGenAPI.Controllers
         [HttpGet("check-ic")]
         public IActionResult CheckICNumber([FromQuery] string icNumber)
         {
-            var submissionsPath = Path.Combine(_env.ContentRootPath, "data", "submissions.json");
+            var submissionsPath = Path.Combine("/data", "submissions.json");
 
             if (!System.IO.File.Exists(submissionsPath))
             {
@@ -104,7 +104,7 @@ namespace CertGenAPI.Controllers
                 return BadRequest("Please provide a valid IC Number.");
             }
 
-            var filePath = Path.Combine(_env.ContentRootPath, "data", "submissions.json");
+            var filePath = Path.Combine("/data", "submissions.json");
 
             if (!System.IO.File.Exists(filePath))
             {
@@ -145,7 +145,7 @@ namespace CertGenAPI.Controllers
                 return BadRequest("Please provide a valid IC Number.");
             }
 
-            var certificatesDir = "/data/Certificates";
+            var certificatesDir = Path.Combine("/data", "Certificates");
 
             if (!Directory.Exists(certificatesDir))
             {
