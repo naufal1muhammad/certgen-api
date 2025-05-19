@@ -104,14 +104,13 @@ namespace CertGenAPI.Controllers
                 return BadRequest("Please provide a valid IC Number.");
             }
 
-            var filePath = Path.Combine("/data", "submissions.json");
+            var filePath = _fileStorageService.GetSubmissionFilePath();
 
             if (!System.IO.File.Exists(filePath))
             {
                 return NotFound("submissions.json not found.");
             }
 
-            // Read existing data
             var json = await System.IO.File.ReadAllTextAsync(filePath);
             var submissions = JsonSerializer.Deserialize<List<CertificateRequest>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
@@ -120,7 +119,6 @@ namespace CertGenAPI.Controllers
                 return NotFound("No submissions found.");
             }
 
-            // Try to remove the matching submission
             var removedCount = submissions.RemoveAll(s => s.ICNumber == icNumber);
 
             if (removedCount == 0)
@@ -128,7 +126,6 @@ namespace CertGenAPI.Controllers
                 return NotFound($"No submission found with IC Number: {icNumber}");
             }
 
-            // Save updated list
             var updatedJson = JsonSerializer.Serialize(submissions, new JsonSerializerOptions { WriteIndented = true });
             await System.IO.File.WriteAllTextAsync(filePath, updatedJson);
 

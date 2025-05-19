@@ -5,9 +5,27 @@ namespace CertGenAPI.Services
 {
     public class FileStorageService
     {
-        private readonly string _submissionFile = Path.Combine("/data", "submissions.json");
-        private readonly IWebHostEnvironment _env;
+        private readonly string _submissionFile;
         private static readonly object _fileLock = new();
+
+        public FileStorageService(IWebHostEnvironment env)
+        {
+            // Ensure the /data folder exists
+            string dataDir = Path.Combine(env.ContentRootPath, "data");
+            if (!Directory.Exists(dataDir))
+            {
+                Directory.CreateDirectory(dataDir);
+            }
+
+            _submissionFile = Path.Combine(dataDir, "submissions.json");
+
+            // Ensure the file exists
+            if (!File.Exists(_submissionFile))
+            {
+                File.WriteAllText(_submissionFile, "[]");
+            }
+        }
+
 
         public async Task SaveSubmissionAsync(CertificateRequest request)
         {
@@ -63,5 +81,7 @@ namespace CertGenAPI.Services
                 return JsonSerializer.Deserialize<List<object>>(json) ?? new List<object>();
             }
         }
+
+        public string GetSubmissionFilePath() => _submissionFile;
     }
 }
