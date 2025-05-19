@@ -145,7 +145,7 @@ namespace CertGenAPI.Controllers
                 return BadRequest("Please provide a valid IC Number.");
             }
 
-            var certificatesDir = Path.Combine(_env.ContentRootPath, "data", "Certificates");
+            var certificatesDir = "/data/Certificates";
 
             if (!Directory.Exists(certificatesDir))
             {
