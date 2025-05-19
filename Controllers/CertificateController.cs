@@ -73,7 +73,7 @@ namespace CertGenAPI.Controllers
         [HttpGet("check-ic")]
         public IActionResult CheckICNumber([FromQuery] string icNumber)
         {
-            var submissionsPath = Path.Combine("/data", "submissions.json");
+            var submissionsPath = _fileStorageService.GetSubmissionFilePath();
 
             if (!System.IO.File.Exists(submissionsPath))
             {
@@ -94,42 +94,23 @@ namespace CertGenAPI.Controllers
             return Ok(exists);
         }
 
-        [HttpDelete("delete-submission")]
-        public async Task<IActionResult> DeleteSubmission([FromQuery] string icNumber, [FromQuery] string token)
+        [HttpDelete("delete-all-submissions")]
+        public async Task<IActionResult> DeleteAllSubmissions([FromQuery] string token)
         {
             if (token != "adminsecret123") return Unauthorized("Access denied.");
 
-            if (string.IsNullOrEmpty(icNumber))
-            {
-                return BadRequest("Please provide a valid IC Number.");
-            }
-
             var filePath = _fileStorageService.GetSubmissionFilePath();
+            Console.WriteLine("Looking for submissions.json at: " + filePath);
 
             if (!System.IO.File.Exists(filePath))
             {
                 return NotFound("submissions.json not found.");
             }
 
-            var json = await System.IO.File.ReadAllTextAsync(filePath);
-            var submissions = JsonSerializer.Deserialize<List<CertificateRequest>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            // Overwrite the file with an empty array
+            await System.IO.File.WriteAllTextAsync(filePath, "[]");
 
-            if (submissions == null || submissions.Count == 0)
-            {
-                return NotFound("No submissions found.");
-            }
-
-            var removedCount = submissions.RemoveAll(s => s.ICNumber == icNumber);
-
-            if (removedCount == 0)
-            {
-                return NotFound($"No submission found with IC Number: {icNumber}");
-            }
-
-            var updatedJson = JsonSerializer.Serialize(submissions, new JsonSerializerOptions { WriteIndented = true });
-            await System.IO.File.WriteAllTextAsync(filePath, updatedJson);
-
-            return Ok($"Deleted {removedCount} submission(s) with IC Number: {icNumber}");
+            return Ok("All submissions have been deleted successfully.");
         }
 
         [HttpDelete("delete-certificate")]
