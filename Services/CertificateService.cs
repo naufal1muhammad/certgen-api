@@ -10,19 +10,7 @@ namespace CertGenAPI.Services
     public class CertificateService
     {
         private readonly string _templateFolder = Path.Combine(Directory.GetCurrentDirectory(), "Templates");
-        private readonly string _outputFolder;
-        private readonly IWebHostEnvironment _env;
-
-        public CertificateService(IWebHostEnvironment env)
-        {
-            _env = env;
-            var dataDirectory = Path.Combine(_env.ContentRootPath, "data");
-
-            // Ensure the data folder exists
-            Directory.CreateDirectory(dataDirectory);
-
-            _outputFolder = Path.Combine(dataDirectory, "Certificates");
-        }
+        private readonly string _outputFolder = Path.Combine(Directory.GetCurrentDirectory(), "Certificates");
 
         public string GenerateCertificate(string name, string role, string icNumber)
         {
