@@ -145,5 +145,34 @@ namespace CertGenAPI.Controllers
 
             return Ok($"Deleted {matchingFiles.Length} certificate(s) for IC Number: {icNumber}");
         }
+
+        [HttpDelete("delete-all-certificates")]
+        public IActionResult DeleteAllCertificates([FromQuery] string token)
+        {
+            if (token != "adminsecret123") return Unauthorized("Access denied.");
+
+            var certFolder = Path.Combine("/data", "Certificates");
+            Console.WriteLine("Looking for Certificates at: " + certFolder);
+
+            if (!Directory.Exists(certFolder))
+            {
+                return NotFound("Certificates folder not found.");
+            }
+
+            var files = Directory.GetFiles(certFolder);
+            foreach (var file in files)
+            {
+                try
+                {
+                    System.IO.File.Delete(file);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Failed to delete {file}: {ex.Message}");
+                }
+            }
+
+            return Ok($"Deleted {files.Length} certificate(s) from the Certificates folder.");
+        }
     }
 }
